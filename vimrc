@@ -1,28 +1,10 @@
-" set tab to 4 space
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
+" +----------------------------------------------------+
+" | vim configuration file                             |
+" |                                                    |
+" | CoSidian - created at 2017/12                      |
+" +----------------------------------------------------+
 
-" set relative line number
-set relativenumber
-
-" set syntax highlight
-filetype plugin on
-syntax on
-
-" powerline configuration
-set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
-let g:powerline_pycmd="py3"
-set laststatus=2
-
-" avoid vundle error caused by non-POSIX shell
-set shell=/bin/bash
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
+" Plugin Manager - Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -31,11 +13,23 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" theme plugin - oceanic next
+" color scheme bundle - oceanic next
 Bundle 'mhartington/oceanic-next'
 
 " vim-tmux nagivator
 Plugin 'christoomey/vim-tmux-navigator'
+
+" nerd tree plugin
+Plugin 'scrooloose/nerdtree'
+
+" you-complete-me plugin
+Plugin 'Valloric/YouCompleteMe'
+
+" ultisnips plugin(snippet engine)
+Plugin 'Sirver/ultisnips'
+
+" snippets
+Plugin 'honza/vim-snippets'
 
 " powerline plugin - DEPRECATED: installed powerline from arch linux community
 " repo
@@ -56,7 +50,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" theme setting
+" avoid vundle error caused by non-POSIX shell
+set shell=/bin/bash
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" color scheme
 if (has("termguicolors"))
     set termguicolors
 endif
@@ -66,3 +66,39 @@ colorscheme OceanicNext
 " modity the background-color of theme - DEPRECATED: modify the theme directly
 " hi Normal guibg=#293340
 " hi LineNr guibg=#293340
+
+" general settings
+" set tab to 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+" set relative line number
+set relativenumber
+
+" set syntax highlight
+filetype plugin on
+syntax on
+
+" powerline configuration
+set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
+let g:powerline_pycmd="py3"
+set laststatus=2
+
+" nerd tree configuration
+" opens nerdtree automatically when no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" you-complete-me configuration
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+" snippets configuration
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" key map
+map <C-n> :NERDTreeToggle<CR>
+
