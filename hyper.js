@@ -12,7 +12,7 @@ module.exports = {
     fontSize: 18,
 
     // font family with optional fallbacks
-    fontFamily: '"Source Code Pro Regular", "WenQuanYi Micro Hei Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Fira Code Retina", "Source Code Pro Regular", "WenQuanYi Micro Hei Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(255,255,255,0.8)',
@@ -116,7 +116,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-chesterish'],
+  plugins: ['hyper-chesterish', 'hyper-ligatures'],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

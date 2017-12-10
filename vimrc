@@ -31,6 +31,9 @@ Plugin 'Sirver/ultisnips'
 " snippets
 Plugin 'honza/vim-snippets'
 
+" autoformat plugin
+Plugin 'Chiel92/vim-autoformat'
+
 " powerline plugin - DEPRECATED: installed powerline from arch linux community
 " repo
 " Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -99,6 +102,12 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" autoformat configuration
+let g:formatdef_custom_clang = "'clang-format -style=file'"
+let g:formatters_c = ['custom_clang']
+let g:formatters_cpp = ['custom_clang']
+
 " key map
 map <C-n> :NERDTreeToggle<CR>
 
+noremap <Tab> :Autoformat<CR>
