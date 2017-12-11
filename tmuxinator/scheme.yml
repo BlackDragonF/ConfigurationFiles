@@ -1,0 +1,15 @@
+# tmuxinator configuration file for scheme  
+# location: ~/.tmuxinator/scheme.yml
+
+name: scheme
+root: . 
+
+startup_window: main
+socket_name: tmux_scheme
+
+windows:
+    - main:
+        layout: even-horizontal
+        panes:
+            - vim <%= @args[0] %>
+            - mit-scheme

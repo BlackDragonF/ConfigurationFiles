@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 " color scheme bundle - oceanic next
 Bundle 'mhartington/oceanic-next'
 
-" vim-tmux nagivator
+" vim-tmux nagivator plugin
 Plugin 'christoomey/vim-tmux-navigator'
 
 " nerd tree plugin
@@ -33,6 +33,19 @@ Plugin 'honza/vim-snippets'
 
 " autoformat plugin
 Plugin 'Chiel92/vim-autoformat'
+
+" comment plugin
+Plugin 'scrooloose/nerdcommenter'
+
+" taglist plugin
+Bundle 'taglist.vim'
+" post installation - pacman -S ctags
+
+" quotes/parents/brackets auto-completion plugin
+Bundle 'Raimondi/delimitMate'
+
+" tied vim to repl
+Bundle 'jpalardy/vim-slime'
 
 " powerline plugin - DEPRECATED: installed powerline from arch linux community
 " repo
@@ -107,7 +120,27 @@ let g:formatdef_custom_clang = "'clang-format -style=file'"
 let g:formatters_c = ['custom_clang']
 let g:formatters_cpp = ['custom_clang']
 
+" nerd commenter configuration
+" add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" vim-slime configuration
+let g:slime_no_mappings = 1
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "tmux_scheme", "target_pane":":.1"}
+let g:slime_dont_ask_default = 1
+let g:slime_preserve_curpos = 0
+let g:slime_paste_file = "$HOME/.slime_paste"
+
 " key map
 map <C-n> :NERDTreeToggle<CR>
 
 noremap <Tab> :Autoformat<CR>
+
+map <S-t> :TlistToggle<CR>
+
+xmap <F5> <Plug>SlimeRegionSend
+nmap <F5> <Plug>SlimeParagraphSend
+nmap <F6> <Plug>SlimeConfig
