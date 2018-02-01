@@ -1,0 +1,15 @@
+#%Module1.0
+##
+## modulefile
+##
+proc ModulesHelp {} {
+	puts stderr "Adds cross compile toolchain(gcc 4.6.1 i386) for MIT jos to user environment"
+}
+
+module-whatis "adds cross compile toolchain(gcc 4.6.1 i386) for MIT jos to user environment"
+
+set		root_dir	/home/chenzhihao/6.828/gcc
+prepend-path	PATH		$root_dir/bin
+prepend-path	LD_LIBRARY_PATH	$root_dir/lib
+
+
