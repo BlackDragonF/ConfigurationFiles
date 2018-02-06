@@ -1,0 +1,22 @@
+#%Module1.0
+##
+## modulefile
+##
+proc ModulesHelp {} {
+	puts stderr "Adds intel vtune amplifier 2018.1.0.535340 to user environment"
+}
+
+module-whatis "adds intel vtune amplifier 2018.1.0.535340 to user environment"
+
+set		root_dir	/home/chenzhihao/intel/vtune_amplifier_2018.1.0.535340
+
+if { [uname machine] == "x86_64" } {
+	set		bin_dir		bin64
+} elseif { [uname machine] == "amd64" } {
+	set 		bin_dir		bin64
+} else {
+	set 		bin_dir		bin32
+}
+
+prepend-path	PATH				$root_dir/$bin_dir
+setenv		VTUNE_AMPLIFIER_2018_DIR	$root_dir
