@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = plasma-workspace
+
+[Action]
+Description = Post upgrade hook for plasma-framework to rename 'org.kde.plasma.Notifications.service' to avoid conflict between notification service for desktop environment.
+Exec = /bin/sh -c 'mv /usr/share/dbus-1/services/org.kde.plasma.Notifications.service /usr/share/dbus-1/services/org.kde.plasma.Notifications.service.disabled'
+When = PostTransaction

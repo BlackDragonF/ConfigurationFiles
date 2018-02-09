@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = breeze
+
+[Action]
+Description = Post upgrade hook to change default background of sddms breeze theme.
+Exec = /bin/sh -c 'echo -e "[General]\ntype=image\nbackground=wallpaper.png" > /usr/share/sddm/themes/breeze/theme.conf'
+When = PostTransaction
+
